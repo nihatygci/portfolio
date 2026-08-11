@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" fill="none">
+  <title>NY geometric monogram</title>
+  <desc>Minimal geometric N and Y monogram designed for Nihat Yağcı.</desc>
+
+  <!-- Stylized N -->
+  <path
+    fill="currentColor"
+    d="M92 590 L205 110 L300 110 L188 590 Z"/>
+
+  <path
+    fill="currentColor"
+    d="M255 590 L365 110 L455 110 L575 590 L465 590 L390 315 L350 590 Z"/>
+
+  <!-- Stylized Y -->
+  <path
+    fill="currentColor"
+    d="M500 110 L610 110 L685 315 L760 110 L870 110 L735 390 L685 590 L575 590 L625 390 Z"/>
+
+  <!-- Fine geometric cuts that sharpen the monogram -->
+  <path
+    fill="currentColor"
+    d="M705 110 L815 110 L765 225 L655 225 Z"/>
+</svg>
