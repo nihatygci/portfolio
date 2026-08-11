@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nihat Yağcı — Web Developer</title>
-<meta name="description" content="Nihat Yağcı, web developer. Building digital products and websites with a focus on design, usability and performance.">
+<title data-i18n="meta.title">Nihat Yağcı — Web Developer</title>
+<meta name="description" content="Nihat Yağcı, web developer. Building digital products and websites with a focus on design, usability and performance." data-i18n-content="meta.description">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,21 +19,24 @@
   <span class="loader__text">NIHAT YAĞCI</span>
 </div>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skipLink">Skip to content</a>
 
 <!-- Navbar -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#top" class="nav__logo" aria-label="Nihat Yağcı — home">
+    <a href="#top" class="nav__logo" aria-label="Nihat Yağcı — home" data-i18n-aria-label="nav.logoAria">
       <!-- Swap this span for the final mark once ready, e.g.
            <img src="assets/logo.svg" alt="Nihat Yağcı" width="20" height="20"> -->
       <span class="nav__logo-mark">NY</span>
     </a>
 
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <nav class="nav__links" aria-label="Primary" data-i18n-aria-label="nav.primaryAria">
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <!-- Populated from TRANSLATIONS at runtime — add a language to
+           translations.js and a button appears here automatically. -->
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Language" data-i18n-aria-label="nav.langAria"></div>
     </nav>
 
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
@@ -45,11 +48,12 @@
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" data-open="false">
-  <nav class="mobile-menu__links" aria-label="Mobile">
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+  <nav class="mobile-menu__links" aria-label="Mobile" data-i18n-aria-label="nav.mobileAria">
+    <a href="#projects" data-i18n="nav.projects">Projects</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </nav>
+  <div class="lang-switch lang-switch--mobile" id="langSwitchMobile" role="group" aria-label="Language" data-i18n-aria-label="nav.langAria"></div>
 </div>
 
 <main id="main">
@@ -59,26 +63,26 @@
     <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
 
     <div class="hero__content">
-      <p class="hero__eyebrow" data-reveal>Portfolio</p>
+      <p class="hero__eyebrow" data-reveal data-i18n="hero.eyebrow">Portfolio</p>
 
       <h1 class="hero__title">
         <span class="hero__title-line" data-reveal>Nihat Yağcı</span>
-        <span class="hero__title-line hero__title-line--muted" data-reveal>Web Developer</span>
+        <span class="hero__title-line hero__title-line--muted" data-reveal data-i18n="hero.role">Web Developer</span>
       </h1>
 
-      <p class="hero__statement" data-reveal>I build digital experiences that work.</p>
+      <p class="hero__statement" data-reveal data-i18n="hero.statement">I build digital experiences that work.</p>
 
-      <p class="hero__sub" data-reveal>Modern websites, digital products and practical digital experiences built with a focus on design, usability and performance.</p>
+      <p class="hero__sub" data-reveal data-i18n="hero.sub">Modern websites, digital products and practical digital experiences built with a focus on design, usability and performance.</p>
 
       <div class="hero__actions" data-reveal>
-        <a href="#projects" class="btn btn--primary">Explore Projects</a>
+        <a href="#projects" class="btn btn--primary" data-i18n="hero.ctaProjects">Explore Projects</a>
         <a href="https://github.com/" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
 
     <div class="hero__scroll" aria-hidden="true">
       <span class="hero__scroll-line"></span>
-      <span class="hero__scroll-label">Scroll</span>
+      <span class="hero__scroll-label" data-i18n="hero.scroll">Scroll</span>
     </div>
   </section>
 
@@ -132,22 +136,22 @@
 
       <div class="project__info" data-reveal>
         <span class="project__label">01 — SAGI Finance</span>
-        <span class="project__category">Product / Android / Web</span>
-        <h2 class="project__headline">A finance product built from the ground up.</h2>
-        <p class="project__description">SAGI Finance is a personal finance application built to make everyday financial tracking simple and practical. It brings income tracking, expense tracking, budgets and a clear view of financial activity into a single web application, extended to Android through a Trusted Web Activity and backed by Firebase, with its own subscription infrastructure.</p>
+        <span class="project__category" data-i18n="sagi.category">Product / Android / Web</span>
+        <h2 class="project__headline" data-i18n="sagi.headline">A finance product built from the ground up.</h2>
+        <p class="project__description" data-i18n="sagi.description">SAGI Finance is a personal finance application built to make everyday financial tracking simple and practical. It brings income tracking, expense tracking, budgets and a clear view of financial activity into a single web application, extended to Android through a Trusted Web Activity and backed by Firebase, with its own subscription infrastructure.</p>
 
         <div class="project__meta">
           <div class="project__meta-block">
-            <span class="project__meta-title">Role</span>
+            <span class="project__meta-title" data-i18n="project.roleTitle">Role</span>
             <ul class="project__meta-list">
-              <li>Product development</li>
-              <li>Frontend development</li>
-              <li>Android integration</li>
-              <li>Backend/service integration</li>
+              <li data-i18n="sagi.role.product">Product development</li>
+              <li data-i18n="sagi.role.frontend">Frontend development</li>
+              <li data-i18n="sagi.role.android">Android integration</li>
+              <li data-i18n="sagi.role.backend">Backend/service integration</li>
             </ul>
           </div>
           <div class="project__meta-block">
-            <span class="project__meta-title">Technologies</span>
+            <span class="project__meta-title" data-i18n="project.techTitle">Technologies</span>
             <ul class="project__meta-list project__meta-list--tags">
               <li>HTML</li>
               <li>CSS</li>
@@ -159,17 +163,17 @@
         </div>
 
         <div class="project__meta-block">
-          <span class="project__meta-title">Highlights</span>
+          <span class="project__meta-title" data-i18n="project.highlightsTitle">Highlights</span>
           <ul class="project__meta-list">
-            <li>Income and expense tracking with a clear day-to-day view</li>
-            <li>Budgeting tools to plan and stay on track</li>
-            <li>Firebase-backed sync of financial activity</li>
-            <li>Packaged as an Android app through a Trusted Web Activity</li>
-            <li>Own subscription infrastructure for premium features</li>
+            <li data-i18n="sagi.highlight.tracking">Income and expense tracking with a clear day-to-day view</li>
+            <li data-i18n="sagi.highlight.budgets">Budgeting tools to plan and stay on track</li>
+            <li data-i18n="sagi.highlight.sync">Firebase-backed sync of financial activity</li>
+            <li data-i18n="sagi.highlight.twa">Packaged as an Android app through a Trusted Web Activity</li>
+            <li data-i18n="sagi.highlight.subscription">Own subscription infrastructure for premium features</li>
           </ul>
         </div>
 
-        <a href="PASTE_SAGI_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener">View Project <span aria-hidden="true">→</span></a>
+        <a href="PASTE_SAGI_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener"><span data-i18n="project.viewProject">View Project</span> <span aria-hidden="true">→</span></a>
       </div>
     </article>
 
@@ -177,22 +181,22 @@
     <article class="project project--reverse" id="project-emek">
       <div class="project__info" data-reveal>
         <span class="project__label">02 — Emek Isıtma</span>
-        <span class="project__category">Client Work / Business Website</span>
-        <h2 class="project__headline">A digital presence built for a real business.</h2>
-        <p class="project__description">Emek Isıtma is a business website and product management system built for a local heating company. It pairs a public-facing site with a database-driven product catalog, giving the business a straightforward way to present and manage what it offers online.</p>
+        <span class="project__category" data-i18n="emek.category">Client Work / Business Website</span>
+        <h2 class="project__headline" data-i18n="emek.headline">A digital presence built for a real business.</h2>
+        <p class="project__description" data-i18n="emek.description">Emek Isıtma is a business website and product management system built for a local heating company. It pairs a public-facing site with a database-driven product catalog, giving the business a straightforward way to present and manage what it offers online.</p>
 
         <div class="project__meta">
           <div class="project__meta-block">
-            <span class="project__meta-title">Role</span>
+            <span class="project__meta-title" data-i18n="project.roleTitle">Role</span>
             <ul class="project__meta-list">
-              <li>Full-stack development</li>
-              <li>UI implementation</li>
-              <li>Backend development</li>
-              <li>Database integration</li>
+              <li data-i18n="emek.role.fullstack">Full-stack development</li>
+              <li data-i18n="emek.role.ui">UI implementation</li>
+              <li data-i18n="emek.role.backend">Backend development</li>
+              <li data-i18n="emek.role.database">Database integration</li>
             </ul>
           </div>
           <div class="project__meta-block">
-            <span class="project__meta-title">Technologies</span>
+            <span class="project__meta-title" data-i18n="project.techTitle">Technologies</span>
             <ul class="project__meta-list project__meta-list--tags">
               <li>PHP</li>
               <li>MySQL</li>
@@ -203,16 +207,16 @@
         </div>
 
         <div class="project__meta-block">
-          <span class="project__meta-title">Highlights</span>
+          <span class="project__meta-title" data-i18n="project.highlightsTitle">Highlights</span>
           <ul class="project__meta-list">
-            <li>Public business website with a structured product catalog</li>
-            <li>Admin-side product management backed by MySQL</li>
-            <li>Custom PHP backend for content and catalog logic</li>
-            <li>Responsive layout built with Bootstrap</li>
+            <li data-i18n="emek.highlight.catalog">Public business website with a structured product catalog</li>
+            <li data-i18n="emek.highlight.admin">Admin-side product management backed by MySQL</li>
+            <li data-i18n="emek.highlight.php">Custom PHP backend for content and catalog logic</li>
+            <li data-i18n="emek.highlight.responsive">Responsive layout built with Bootstrap</li>
           </ul>
         </div>
 
-        <a href="PASTE_EMEK_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener">View Project <span aria-hidden="true">→</span></a>
+        <a href="PASTE_EMEK_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener"><span data-i18n="project.viewProject">View Project</span> <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="project__visual project__visual--browser" data-reveal>
@@ -255,8 +259,8 @@
   <!-- Demo Projects -->
   <section class="demos" id="demos">
     <div class="demos__head" data-reveal>
-      <h2 class="demos__title">Websites built to explore ideas.</h2>
-      <p class="demos__sub">A collection of independent website concepts created to explore different visual identities, industries and user experiences.</p>
+      <h2 class="demos__title" data-i18n="demos.title">Websites built to explore ideas.</h2>
+      <p class="demos__sub" data-i18n="demos.sub">A collection of independent website concepts created to explore different visual identities, industries and user experiences.</p>
     </div>
 
     <div class="demos__grid">
@@ -277,9 +281,9 @@
         </span>
         <span class="demo-card__body">
           <span class="demo-card__title">Dentist Clinic</span>
-          <span class="demo-card__category">Healthcare — Website Concept</span>
+          <span class="demo-card__category" data-i18n="demos.dentist.category">Healthcare — Website Concept</span>
         </span>
-        <span class="demo-card__cta">View demo <span aria-hidden="true">→</span></span>
+        <span class="demo-card__cta"><span data-i18n="demos.viewDemo">View demo</span> <span aria-hidden="true">→</span></span>
       </button>
 
       <button
@@ -299,9 +303,9 @@
         </span>
         <span class="demo-card__body">
           <span class="demo-card__title">Beauty Studio</span>
-          <span class="demo-card__category">Lifestyle — Website Concept</span>
+          <span class="demo-card__category" data-i18n="demos.beauty.category">Lifestyle — Website Concept</span>
         </span>
-        <span class="demo-card__cta">View demo <span aria-hidden="true">→</span></span>
+        <span class="demo-card__cta"><span data-i18n="demos.viewDemo">View demo</span> <span aria-hidden="true">→</span></span>
       </button>
     </div>
   </section>
@@ -317,22 +321,22 @@
     >
       <div class="modal__header">
         <div class="modal__heading">
-          <span class="modal__eyebrow">Live Preview</span>
+          <span class="modal__eyebrow" data-i18n="modal.eyebrow">Live Preview</span>
           <h2 class="modal__title" id="demoModalTitle">Project name</h2>
         </div>
-        <button type="button" class="modal__close" id="demoModalClose" aria-label="Close live preview">
+        <button type="button" class="modal__close" id="demoModalClose" aria-label="Close live preview" data-i18n-aria-label="modal.closeAria">
           <span aria-hidden="true">×</span>
         </button>
       </div>
 
       <div class="modal__frame-wrap">
         <div class="modal__status" id="demoModalStatus">
-          <span class="modal__status-text">Loading demo…</span>
+          <span class="modal__status-text" data-i18n="modal.loading">Loading demo…</span>
         </div>
 
         <div class="modal__fallback" id="demoModalFallback" hidden>
-          <p class="modal__fallback-text">Demo cannot be embedded here.</p>
-          <a class="btn btn--ghost" id="demoModalFallbackLink" href="#" target="_blank" rel="noopener">Open demo in new tab</a>
+          <p class="modal__fallback-text" data-i18n="modal.blockedText">Demo cannot be embedded here.</p>
+          <a class="btn btn--ghost" id="demoModalFallbackLink" href="#" target="_blank" rel="noopener" data-i18n="modal.openNewTab">Open demo in new tab</a>
         </div>
 
         <iframe
@@ -345,7 +349,7 @@
 
       <div class="modal__footer">
         <a class="modal__fullpage" id="demoModalFullpage" href="#" target="_blank" rel="noopener">
-          Open Full Page <span aria-hidden="true">↗</span>
+          <span data-i18n="modal.openFullPage">Open Full Page</span> <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
@@ -361,10 +365,10 @@
     </div>
 
     <div class="about__content">
-      <h2 class="about__title" data-reveal>Building things is how I learn.</h2>
-      <p class="about__lead" data-reveal>I'm Nihat, a web developer focused on turning ideas into working digital products.</p>
-      <p class="about__text" data-reveal>My work sits between design and development — websites, web applications and the practical details in between. I learn mostly by making things: shipping a product, seeing where it breaks, and improving it. That process shapes how I think about usability and performance, not as an afterthought but as part of how something is built from the start.</p>
-      <p class="about__closing" data-reveal>I don't just want to write code. I want to build things worth using.</p>
+      <h2 class="about__title" data-reveal data-i18n="about.title">Building things is how I learn.</h2>
+      <p class="about__lead" data-reveal data-i18n="about.lead">I'm Nihat, a web developer focused on turning ideas into working digital products.</p>
+      <p class="about__text" data-reveal data-i18n="about.text">My work sits between design and development — websites, web applications and the practical details in between. I learn mostly by making things: shipping a product, seeing where it breaks, and improving it. That process shapes how I think about usability and performance, not as an afterthought but as part of how something is built from the start.</p>
+      <p class="about__closing" data-reveal data-i18n="about.closing">I don't just want to write code. I want to build things worth using.</p>
     </div>
   </section>
 
@@ -372,34 +376,38 @@
   <section class="approach">
     <div class="approach__inner">
       <h2 class="approach__title" data-reveal>
-        <span>Simple.</span>
-        <span>Purposeful.</span>
-        <span>Built to last.</span>
+        <span data-i18n="approach.word1">Simple.</span>
+        <span data-i18n="approach.word2">Purposeful.</span>
+        <span data-i18n="approach.word3">Built to last.</span>
       </h2>
-      <p class="approach__sub" data-reveal>Design with intention.<br>Code with purpose.<br>Build without unnecessary complexity.</p>
+      <p class="approach__sub" data-reveal>
+        <span data-i18n="approach.line1">Design with intention.</span><br>
+        <span data-i18n="approach.line2">Code with purpose.</span><br>
+        <span data-i18n="approach.line3">Build without unnecessary complexity.</span>
+      </p>
     </div>
   </section>
 
   <!-- Capabilities -->
   <section class="capabilities" id="capabilities">
-    <h2 class="capabilities__title" data-reveal>Capabilities</h2>
+    <h2 class="capabilities__title" data-reveal data-i18n="capabilities.title">Capabilities</h2>
 
     <div class="capabilities__grid">
       <div class="capability" data-reveal>
-        <span class="capability__title">Web Development</span>
-        <p class="capability__text">Modern responsive websites, business websites and focused web experiences.</p>
+        <span class="capability__title" data-i18n="capabilities.web.title">Web Development</span>
+        <p class="capability__text" data-i18n="capabilities.web.text">Modern responsive websites, business websites and focused web experiences.</p>
       </div>
       <div class="capability" data-reveal>
-        <span class="capability__title">Digital Products</span>
-        <p class="capability__text">Web applications and practical digital products built around real user needs.</p>
+        <span class="capability__title" data-i18n="capabilities.digital.title">Digital Products</span>
+        <p class="capability__text" data-i18n="capabilities.digital.text">Web applications and practical digital products built around real user needs.</p>
       </div>
       <div class="capability" data-reveal>
-        <span class="capability__title">Full-Stack Solutions</span>
-        <p class="capability__text">Frontend interfaces backed by PHP, databases, Firebase and custom application logic.</p>
+        <span class="capability__title" data-i18n="capabilities.fullstack.title">Full-Stack Solutions</span>
+        <p class="capability__text" data-i18n="capabilities.fullstack.text">Frontend interfaces backed by PHP, databases, Firebase and custom application logic.</p>
       </div>
       <div class="capability" data-reveal>
-        <span class="capability__title">Product Thinking</span>
-        <p class="capability__text">Turning an idea into something usable, testable and continuously improvable.</p>
+        <span class="capability__title" data-i18n="capabilities.product.title">Product Thinking</span>
+        <p class="capability__text" data-i18n="capabilities.product.text">Turning an idea into something usable, testable and continuously improvable.</p>
       </div>
     </div>
 
@@ -419,14 +427,14 @@
   <section class="contact" id="contact">
     <div class="contact__inner">
       <h2 class="contact__title" data-reveal>
-        <span>Have a project in mind?</span>
-        <span class="contact__title--muted">Let's build it.</span>
+        <span data-i18n="contact.title1">Have a project in mind?</span>
+        <span class="contact__title--muted" data-i18n="contact.title2">Let's build it.</span>
       </h2>
-      <p class="contact__sub" data-reveal>Have an idea, a business that needs a better digital presence, or a product you want to bring to life?</p>
+      <p class="contact__sub" data-reveal data-i18n="contact.sub">Have an idea, a business that needs a better digital presence, or a product you want to bring to life?</p>
 
       <div class="contact__links" data-reveal>
         <a href="mailto:your@email.com" class="contact__link">
-          <span class="contact__link-label">Email</span>
+          <span class="contact__link-label" data-i18n="contact.emailLabel">Email</span>
           <span class="contact__link-value">your@email.com</span>
         </a>
         <a href="https://github.com/" target="_blank" rel="noopener" class="contact__link">
@@ -447,19 +455,20 @@
   <div class="footer__inner">
     <div class="footer__brand">
       <span class="footer__name">Nihat Yağcı</span>
-      <span class="footer__role">Web Developer &amp; Digital Product Builder</span>
+      <span class="footer__role" data-i18n="footer.role">Web Developer &amp; Digital Product Builder</span>
     </div>
 
-    <nav class="footer__links" aria-label="Footer">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <nav class="footer__links" aria-label="Footer" data-i18n-aria-label="footer.navAria">
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
 
     <span class="footer__copy">© 2026 Nihat Yağcı</span>
   </div>
 </footer>
 
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

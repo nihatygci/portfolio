@@ -12,6 +12,113 @@
   };
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const navToggle = document.getElementById("navToggle");
+
+  /* =========================================================
+     LANGUAGE
+     Reads TRANSLATIONS from translations.js — nothing here is
+     hardcoded copy. Runs synchronously, before the loader fades,
+     so there's no visible flash of the wrong language.
+     ========================================================= */
+  let currentLang = "en";
+  const t = (key) => {
+    const dict = (typeof TRANSLATIONS !== "undefined" && TRANSLATIONS[currentLang]) || {};
+    const fallback = (typeof TRANSLATIONS !== "undefined" && TRANSLATIONS.en) || {};
+    return dict[key] ?? fallback[key] ?? key;
+  };
+
+  const getAvailableLangs = () => {
+    if (typeof TRANSLATIONS === "undefined") return [];
+    const known = typeof LANG_ORDER !== "undefined" ? LANG_ORDER.slice() : [];
+    Object.keys(TRANSLATIONS).forEach((code) => {
+      if (!known.includes(code)) known.push(code);
+    });
+    return known.filter((code) => TRANSLATIONS[code]);
+  };
+
+  const detectInitialLang = () => {
+    const available = getAvailableLangs();
+    if (!available.length) return "en";
+
+    try {
+      const saved = window.localStorage.getItem("lang");
+      if (saved && available.includes(saved)) return saved;
+    } catch (err) {
+      /* localStorage unavailable — fall through to detection */
+    }
+
+    const browserLangs = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || ""];
+    for (const bl of browserLangs) {
+      const short = String(bl).slice(0, 2).toLowerCase();
+      if (available.includes(short)) return short;
+    }
+
+    return available.includes("en") ? "en" : available[0];
+  };
+
+  const updateNavToggleLabel = () => {
+    if (!navToggle) return;
+    const open = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-label", open ? t("nav.closeMenu") : t("nav.openMenu"));
+  };
+
+  const renderLangSwitches = () => {
+    const available = getAvailableLangs();
+    const containers = document.querySelectorAll(".lang-switch");
+    containers.forEach((container) => {
+      container.innerHTML = "";
+      available.forEach((code) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "lang-switch__btn";
+        btn.dataset.lang = code;
+        btn.textContent = code.toUpperCase();
+        btn.setAttribute("aria-pressed", String(code === currentLang));
+        btn.addEventListener("click", () => setLanguage(code));
+        container.appendChild(btn);
+      });
+    });
+  };
+
+  const updateLangSwitchState = () => {
+    document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.lang === currentLang));
+    });
+  };
+
+  function applyLanguage(lang) {
+    const available = getAvailableLangs();
+    currentLang = available.includes(lang) ? lang : available[0] || "en";
+
+    document.documentElement.lang = currentLang;
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      el.textContent = t(el.dataset.i18n);
+    });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel));
+    });
+    document.querySelectorAll("[data-i18n-content]").forEach((el) => {
+      el.setAttribute("content", t(el.dataset.i18nContent));
+    });
+
+    updateNavToggleLabel();
+    updateLangSwitchState();
+  }
+
+  function setLanguage(lang) {
+    applyLanguage(lang);
+    try {
+      window.localStorage.setItem("lang", currentLang);
+    } catch (err) {
+      /* localStorage unavailable — language just won't persist */
+    }
+  }
+
+  renderLangSwitches();
+  applyLanguage(detectInitialLang());
 
   /* =========================================================
      LOADER
@@ -53,13 +160,12 @@
   /* =========================================================
      MOBILE MENU
      ========================================================= */
-  const navToggle = document.getElementById("navToggle");
   const mobileMenu = document.getElementById("mobileMenu");
 
   const setMenu = (open) => {
     if (!navToggle || !mobileMenu) return;
     navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    updateNavToggleLabel();
     mobileMenu.dataset.open = String(open);
     document.body.style.overflow = open ? "hidden" : "";
     if (open) {
@@ -384,7 +490,7 @@
 
       lastTrigger = trigger;
       modalTitle.textContent = title;
-      modalIframe.title = `${title} — live preview`;
+      modalIframe.title = `${title} — ${t("modal.livePreviewSuffix")}`;
       modalFullpage.href = url;
       if (modalFallbackLink) modalFallbackLink.href = url;
 
