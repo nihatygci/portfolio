@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nihat Yağcı — Web Developer</title>
+<meta name="description" content="Nihat Yağcı, web developer. Building digital products and websites with a focus on design, usability and performance.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Loading intro -->
+<div class="loader" id="loader" aria-hidden="true">
+  <span class="loader__text">NIHAT YAĞCI</span>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Navbar -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo" aria-label="Nihat Yağcı — home">
+      <!-- Swap this span for the final mark once ready, e.g.
+           <img src="assets/logo.svg" alt="Nihat Yağcı" width="20" height="20"> -->
+      <span class="nav__logo-mark">NY</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <nav class="mobile-menu__links" aria-label="Mobile">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-reveal>Portfolio</p>
+
+      <h1 class="hero__title">
+        <span class="hero__title-line" data-reveal>Nihat Yağcı</span>
+        <span class="hero__title-line hero__title-line--muted" data-reveal>Web Developer</span>
+      </h1>
+
+      <p class="hero__statement" data-reveal>I build digital experiences that work.</p>
+
+      <p class="hero__sub" data-reveal>Modern websites, digital products and practical digital experiences built with a focus on design, usability and performance.</p>
+
+      <div class="hero__actions" data-reveal>
+        <a href="#projects" class="btn btn--primary">Explore Projects</a>
+        <a href="https://github.com/" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+
+    <!-- Project 01 — SAGI Finance -->
+    <article class="project" id="project-sagi">
+      <div class="project__visual project__visual--phone" data-reveal>
+        <div class="device device--phone">
+          <div class="device__frame">
+            <div class="device__notch"></div>
+            <div class="device__screen">
+              <!-- Real screenshot hook: once assets/<sagi-screenshot>.png exists,
+                   replace the .app-mock block below with:
+                   <img class="device__shot" src="assets/sagi-screenshot.png"
+                        alt="SAGI Finance app screenshot" loading="lazy"> -->
+              <div class="app-mock">
+                <div class="app-mock__topbar">
+                  <span class="app-mock__title">Overview</span>
+                  <span class="app-mock__dot"></span>
+                </div>
+                <div class="app-mock__balance">
+                  <span class="app-mock__balance-label">Total balance</span>
+                  <span class="app-mock__balance-value">₺ •••••</span>
+                </div>
+                <div class="app-mock__row">
+                  <div class="app-mock__pill">Income</div>
+                  <div class="app-mock__pill">Expense</div>
+                  <div class="app-mock__pill">Budgets</div>
+                </div>
+                <div class="app-mock__chart">
+                  <span style="--h:38%"></span>
+                  <span style="--h:62%"></span>
+                  <span style="--h:45%"></span>
+                  <span style="--h:80%"></span>
+                  <span style="--h:55%"></span>
+                  <span style="--h:70%"></span>
+                  <span style="--h:30%"></span>
+                </div>
+                <div class="app-mock__list">
+                  <div class="app-mock__item"></div>
+                  <div class="app-mock__item"></div>
+                  <div class="app-mock__item"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project__info" data-reveal>
+        <span class="project__label">01 — SAGI Finance</span>
+        <span class="project__category">Product / Android / Web</span>
+        <h2 class="project__headline">A finance product built from the ground up.</h2>
+        <p class="project__description">SAGI Finance is a personal finance application built to make everyday financial tracking simple and practical. It brings income tracking, expense tracking, budgets and a clear view of financial activity into a single web application, extended to Android through a Trusted Web Activity and backed by Firebase, with its own subscription infrastructure.</p>
+
+        <div class="project__meta">
+          <div class="project__meta-block">
+            <span class="project__meta-title">Role</span>
+            <ul class="project__meta-list">
+              <li>Product development</li>
+              <li>Frontend development</li>
+              <li>Android integration</li>
+              <li>Backend/service integration</li>
+            </ul>
+          </div>
+          <div class="project__meta-block">
+            <span class="project__meta-title">Technologies</span>
+            <ul class="project__meta-list project__meta-list--tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Firebase</li>
+              <li>Android TWA</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project__meta-block">
+          <span class="project__meta-title">Highlights</span>
+          <ul class="project__meta-list">
+            <li>Income and expense tracking with a clear day-to-day view</li>
+            <li>Budgeting tools to plan and stay on track</li>
+            <li>Firebase-backed sync of financial activity</li>
+            <li>Packaged as an Android app through a Trusted Web Activity</li>
+            <li>Own subscription infrastructure for premium features</li>
+          </ul>
+        </div>
+
+        <a href="PASTE_SAGI_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <!-- Project 02 — Emek Isıtma -->
+    <article class="project project--reverse" id="project-emek">
+      <div class="project__info" data-reveal>
+        <span class="project__label">02 — Emek Isıtma</span>
+        <span class="project__category">Client Work / Business Website</span>
+        <h2 class="project__headline">A digital presence built for a real business.</h2>
+        <p class="project__description">Emek Isıtma is a business website and product management system built for a local heating company. It pairs a public-facing site with a database-driven product catalog, giving the business a straightforward way to present and manage what it offers online.</p>
+
+        <div class="project__meta">
+          <div class="project__meta-block">
+            <span class="project__meta-title">Role</span>
+            <ul class="project__meta-list">
+              <li>Full-stack development</li>
+              <li>UI implementation</li>
+              <li>Backend development</li>
+              <li>Database integration</li>
+            </ul>
+          </div>
+          <div class="project__meta-block">
+            <span class="project__meta-title">Technologies</span>
+            <ul class="project__meta-list project__meta-list--tags">
+              <li>PHP</li>
+              <li>MySQL</li>
+              <li>Bootstrap</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project__meta-block">
+          <span class="project__meta-title">Highlights</span>
+          <ul class="project__meta-list">
+            <li>Public business website with a structured product catalog</li>
+            <li>Admin-side product management backed by MySQL</li>
+            <li>Custom PHP backend for content and catalog logic</li>
+            <li>Responsive layout built with Bootstrap</li>
+          </ul>
+        </div>
+
+        <a href="PASTE_EMEK_PROJECT_URL_HERE" class="project__link" target="_blank" rel="noopener">View Project <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="project__visual project__visual--browser" data-reveal>
+        <div class="device device--browser">
+          <div class="device__chrome">
+            <span class="device__chrome-dot"></span>
+            <span class="device__chrome-dot"></span>
+            <span class="device__chrome-dot"></span>
+            <span class="device__chrome-bar"></span>
+          </div>
+          <div class="device__screen">
+            <!-- Real screenshot hook: once assets/<emek-screenshot>.png exists,
+                 replace the .site-mock block below with:
+                 <img class="device__shot" src="assets/emek-screenshot.png"
+                      alt="Emek Isıtma website screenshot" loading="lazy"> -->
+            <div class="site-mock">
+              <div class="site-mock__nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="site-mock__hero">
+                <span class="site-mock__hero-title"></span>
+                <span class="site-mock__hero-sub"></span>
+              </div>
+              <div class="site-mock__grid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Demo Projects -->
+  <section class="demos" id="demos">
+    <div class="demos__head" data-reveal>
+      <h2 class="demos__title">Websites built to explore ideas.</h2>
+      <p class="demos__sub">A collection of independent website concepts created to explore different visual identities, industries and user experiences.</p>
+    </div>
+
+    <div class="demos__grid">
+      <button
+        type="button"
+        class="demo-card"
+        data-reveal
+        data-demo-index="01"
+        data-demo-title="Dentist Clinic"
+        data-demo-category="Healthcare — Website Concept"
+        data-demo-key="dentist"
+      >
+        <span class="demo-card__index">01</span>
+        <span class="demo-card__preview" aria-hidden="true">
+          <span class="demo-card__preview-line"></span>
+          <span class="demo-card__preview-line"></span>
+          <span class="demo-card__preview-line demo-card__preview-line--short"></span>
+        </span>
+        <span class="demo-card__body">
+          <span class="demo-card__title">Dentist Clinic</span>
+          <span class="demo-card__category">Healthcare — Website Concept</span>
+        </span>
+        <span class="demo-card__cta">View demo <span aria-hidden="true">→</span></span>
+      </button>
+
+      <button
+        type="button"
+        class="demo-card"
+        data-reveal
+        data-demo-index="02"
+        data-demo-title="Beauty Studio"
+        data-demo-category="Lifestyle — Website Concept"
+        data-demo-key="beauty"
+      >
+        <span class="demo-card__index">02</span>
+        <span class="demo-card__preview" aria-hidden="true">
+          <span class="demo-card__preview-line"></span>
+          <span class="demo-card__preview-line"></span>
+          <span class="demo-card__preview-line demo-card__preview-line--short"></span>
+        </span>
+        <span class="demo-card__body">
+          <span class="demo-card__title">Beauty Studio</span>
+          <span class="demo-card__category">Lifestyle — Website Concept</span>
+        </span>
+        <span class="demo-card__cta">View demo <span aria-hidden="true">→</span></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Live demo modal (single reusable instance, filled in by script.js) -->
+  <div class="modal-backdrop" id="demoModalBackdrop" hidden>
+    <div
+      class="modal"
+      id="demoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="demoModalTitle"
+    >
+      <div class="modal__header">
+        <div class="modal__heading">
+          <span class="modal__eyebrow">Live Preview</span>
+          <h2 class="modal__title" id="demoModalTitle">Project name</h2>
+        </div>
+        <button type="button" class="modal__close" id="demoModalClose" aria-label="Close live preview">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <div class="modal__frame-wrap">
+        <div class="modal__status" id="demoModalStatus">
+          <span class="modal__status-text">Loading demo…</span>
+        </div>
+
+        <div class="modal__fallback" id="demoModalFallback" hidden>
+          <p class="modal__fallback-text">Demo cannot be embedded here.</p>
+          <a class="btn btn--ghost" id="demoModalFallbackLink" href="#" target="_blank" rel="noopener">Open demo in new tab</a>
+        </div>
+
+        <iframe
+          class="modal__iframe"
+          id="demoModalIframe"
+          title="Live preview"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div class="modal__footer">
+        <a class="modal__fullpage" id="demoModalFullpage" href="#" target="_blank" rel="noopener">
+          Open Full Page <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about__visual" aria-hidden="true" data-reveal>
+      <div class="about__grid-graphic">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <h2 class="about__title" data-reveal>Building things is how I learn.</h2>
+      <p class="about__lead" data-reveal>I'm Nihat, a web developer focused on turning ideas into working digital products.</p>
+      <p class="about__text" data-reveal>My work sits between design and development — websites, web applications and the practical details in between. I learn mostly by making things: shipping a product, seeing where it breaks, and improving it. That process shapes how I think about usability and performance, not as an afterthought but as part of how something is built from the start.</p>
+      <p class="about__closing" data-reveal>I don't just want to write code. I want to build things worth using.</p>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="approach">
+    <div class="approach__inner">
+      <h2 class="approach__title" data-reveal>
+        <span>Simple.</span>
+        <span>Purposeful.</span>
+        <span>Built to last.</span>
+      </h2>
+      <p class="approach__sub" data-reveal>Design with intention.<br>Code with purpose.<br>Build without unnecessary complexity.</p>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="capabilities" id="capabilities">
+    <h2 class="capabilities__title" data-reveal>Capabilities</h2>
+
+    <div class="capabilities__grid">
+      <div class="capability" data-reveal>
+        <span class="capability__title">Web Development</span>
+        <p class="capability__text">Modern responsive websites, business websites and focused web experiences.</p>
+      </div>
+      <div class="capability" data-reveal>
+        <span class="capability__title">Digital Products</span>
+        <p class="capability__text">Web applications and practical digital products built around real user needs.</p>
+      </div>
+      <div class="capability" data-reveal>
+        <span class="capability__title">Full-Stack Solutions</span>
+        <p class="capability__text">Frontend interfaces backed by PHP, databases, Firebase and custom application logic.</p>
+      </div>
+      <div class="capability" data-reveal>
+        <span class="capability__title">Product Thinking</span>
+        <p class="capability__text">Turning an idea into something usable, testable and continuously improvable.</p>
+      </div>
+    </div>
+
+    <ul class="tech-list" data-reveal>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>PHP</li>
+      <li>MySQL</li>
+      <li>Firebase</li>
+      <li>Git</li>
+      <li>Android TWA</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <h2 class="contact__title" data-reveal>
+        <span>Have a project in mind?</span>
+        <span class="contact__title--muted">Let's build it.</span>
+      </h2>
+      <p class="contact__sub" data-reveal>Have an idea, a business that needs a better digital presence, or a product you want to bring to life?</p>
+
+      <div class="contact__links" data-reveal>
+        <a href="mailto:your@email.com" class="contact__link">
+          <span class="contact__link-label">Email</span>
+          <span class="contact__link-value">your@email.com</span>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener" class="contact__link">
+          <span class="contact__link-label">GitHub</span>
+          <span class="contact__link-value">github.com/yourusername</span>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact__link">
+          <span class="contact__link-label">LinkedIn</span>
+          <span class="contact__link-value">linkedin.com/in/yourusername</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__name">Nihat Yağcı</span>
+      <span class="footer__role">Web Developer &amp; Digital Product Builder</span>
+    </div>
+
+    <nav class="footer__links" aria-label="Footer">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <span class="footer__copy">© 2026 Nihat Yağcı</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
