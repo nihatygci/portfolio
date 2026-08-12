@@ -37,6 +37,8 @@ const TRANSLATIONS = {
     "nav.primaryAria": "Primary",
     "nav.mobileAria": "Mobile",
     "nav.langAria": "Language",
+    "theme.switchToDark": "Switch to dark theme",
+    "theme.switchToLight": "Switch to light theme",
     "nav.openMenu": "Open menu",
     "nav.closeMenu": "Close menu",
 
@@ -135,6 +137,8 @@ const TRANSLATIONS = {
     "nav.primaryAria": "Ana menü",
     "nav.mobileAria": "Mobil menü",
     "nav.langAria": "Dil",
+    "theme.switchToDark": "Koyu temaya geç",
+    "theme.switchToLight": "Açık temaya geç",
     "nav.openMenu": "Menüyü aç",
     "nav.closeMenu": "Menüyü kapat",
 

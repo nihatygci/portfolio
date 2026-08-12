@@ -110,6 +110,7 @@
 
   function setLanguage(lang) {
     applyLanguage(lang);
+    updateThemeToggleLabels();
     try {
       window.localStorage.setItem("lang", currentLang);
     } catch (err) {
@@ -119,6 +120,76 @@
 
   renderLangSwitches();
   applyLanguage(detectInitialLang());
+
+  /* =========================================================
+     THEME (light / dark)
+     Reads/writes an html[data-theme] attribute; every color in
+     style.css is a CSS variable keyed off that attribute, so this
+     only has to flip one attribute plus refresh the hero canvas'
+     cached colors (canvas paints with JS, not CSS, so it can't
+     react to the attribute change on its own). Runs synchronously,
+     same as LANGUAGE above, so there's no flash of the wrong theme.
+     ========================================================= */
+  const themeToggle = document.getElementById("themeToggle");
+  const themeToggleMobile = document.getElementById("themeToggleMobile");
+  const themeToggles = [themeToggle, themeToggleMobile].filter(Boolean);
+
+  let currentTheme = "light";
+  let canvasTheme = { rgb: "24, 24, 27", dotAlpha: 0.22, lineAlpha: 0.4 };
+
+  function refreshCanvasTheme() {
+    const styles = getComputedStyle(document.documentElement);
+    canvasTheme = {
+      rgb: styles.getPropertyValue("--canvas-rgb").trim() || canvasTheme.rgb,
+      dotAlpha: parseFloat(styles.getPropertyValue("--canvas-dot-alpha")) || canvasTheme.dotAlpha,
+      lineAlpha: parseFloat(styles.getPropertyValue("--canvas-line-alpha")) || canvasTheme.lineAlpha,
+    };
+  }
+
+  function detectInitialTheme() {
+    try {
+      const saved = window.localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") return saved;
+    } catch (err) {
+      /* localStorage unavailable — fall through to system preference */
+    }
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  }
+
+  function updateThemeToggleLabels() {
+    const label = currentTheme === "dark" ? t("theme.switchToLight") : t("theme.switchToDark");
+    themeToggles.forEach((btn) => {
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("aria-pressed", String(currentTheme === "dark"));
+    });
+  }
+
+  function applyTheme(theme) {
+    currentTheme = theme === "dark" ? "dark" : "light";
+    document.documentElement.dataset.theme = currentTheme;
+    refreshCanvasTheme();
+    updateThemeToggleLabels();
+  }
+
+  function setTheme(theme) {
+    applyTheme(theme);
+    try {
+      window.localStorage.setItem("theme", currentTheme);
+    } catch (err) {
+      /* localStorage unavailable — theme just won't persist */
+    }
+  }
+
+  themeToggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+  });
+
+  applyTheme(detectInitialTheme());
 
   /* =========================================================
      LOADER
@@ -286,9 +357,9 @@
         }
       }
 
-      // Draw faint dots. Dark-on-light now — same restrained
-      // opacity the original white-on-dark version used.
-      ctx.fillStyle = "rgba(24,24,27,0.22)";
+      // Draw faint dots — color/opacity come from canvasTheme, kept
+      // in sync with the light/dark toggle above.
+      ctx.fillStyle = `rgba(${canvasTheme.rgb}, ${canvasTheme.dotAlpha})`;
       for (const n of nodes) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, 1.1, 0, Math.PI * 2);
@@ -305,8 +376,8 @@
           const dy = a.y - pointer.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < radius) {
-            const alpha = (1 - dist / radius) * 0.4;
-            ctx.strokeStyle = `rgba(24,24,27,${alpha})`;
+            const alpha = (1 - dist / radius) * canvasTheme.lineAlpha;
+            ctx.strokeStyle = `rgba(${canvasTheme.rgb}, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
