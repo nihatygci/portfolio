@@ -172,24 +172,16 @@ section { position: relative; }
 .nav__logo {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+}
+.nav__logo img {
+  display: block;
   width: 40px;
-  height: 40px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
+  height: 28px;
+  transition: opacity var(--dur-fast) var(--ease);
 }
-.nav__logo-mark {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-/* Ready for an SVG/image mark — drop a logo asset in as a child
-   of .nav__logo and it will fill the existing 40x40 box. */
-.nav__logo img,
-.nav__logo svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.nav__logo:hover img,
+.nav__logo:focus-visible img {
+  opacity: 0.7;
 }
 .nav__links {
   display: flex;
@@ -593,44 +585,8 @@ section { position: relative; }
   background: var(--bg-soft);
   border-radius: 18px;
   overflow: hidden;
-  aspect-ratio: 9 / 18.5;
-  padding: 1.1rem 1rem;
+  aspect-ratio: 1082 / 2400;
 }
-.app-mock { display: flex; flex-direction: column; height: 100%; gap: 1rem; }
-.app-mock__topbar { display: flex; align-items: center; justify-content: space-between; }
-.app-mock__title { font-size: 0.7rem; color: var(--text-dim); font-weight: 600; }
-.app-mock__dot { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--border-strong); }
-.app-mock__balance { display: flex; flex-direction: column; gap: 0.4rem; }
-.app-mock__balance-label { font-size: 0.6rem; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
-.app-mock__balance-value { font-size: 1.5rem; font-weight: 700; }
-.app-mock__row { display: flex; gap: 0.4rem; }
-.app-mock__pill {
-  flex: 1;
-  text-align: center;
-  font-size: 0.55rem;
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 0.4rem 0.2rem;
-}
-.app-mock__chart {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 70px;
-  flex: 1;
-}
-.app-mock__chart span {
-  flex: 1;
-  height: var(--h);
-  background: linear-gradient(to top, var(--text), var(--text-faint));
-  opacity: 0.85;
-  border-radius: 2px 2px 0 0;
-}
-.app-mock__list { display: flex; flex-direction: column; gap: 0.5rem; }
-.app-mock__item { height: 14px; border-radius: 4px; background: var(--surface-2); }
-.app-mock__item:nth-child(2) { width: 80%; }
-.app-mock__item:nth-child(3) { width: 60%; }
 
 .device--browser { width: 100%; max-width: 560px; }
 .device__chrome {
@@ -663,12 +619,14 @@ section { position: relative; }
   border: 1px solid var(--border-strong);
   border-top: none;
   border-radius: 0 0 10px 10px;
-  padding: 1.5rem;
+  aspect-ratio: 1875 / 950;
+  overflow: hidden;
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
 }
-/* Shared hook for real screenshots — sits inside the existing
-   .device__screen padding and picks up whichever radius its
-   parent (phone or browser) defines. */
+/* Real screenshots fill their device screen edge-to-edge and pick
+   up whichever radius its parent (phone or browser) defines. The
+   screen's aspect-ratio matches each image exactly, so object-fit
+   cover never actually has to crop anything. */
 .device__shot {
   display: block;
   width: 100%;
@@ -676,20 +634,6 @@ section { position: relative; }
   object-fit: cover;
   border-radius: inherit;
 }
-.site-mock { display: flex; flex-direction: column; gap: 1.5rem; }
-.site-mock__nav { display: flex; gap: 1rem; align-items: center; }
-.site-mock__nav span {
-  height: 8px;
-  width: 34px;
-  border-radius: 3px;
-  background: var(--surface-2);
-}
-.site-mock__nav span:first-child { width: 22px; background: var(--text-faint); }
-.site-mock__hero { display: flex; flex-direction: column; gap: 0.6rem; padding-block: 1.25rem; }
-.site-mock__hero-title { height: 20px; width: 65%; border-radius: 4px; background: linear-gradient(90deg, var(--text-dim), var(--text-faint)); }
-.site-mock__hero-sub { height: 10px; width: 40%; border-radius: 3px; background: var(--surface-2); }
-.site-mock__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
-.site-mock__grid span { aspect-ratio: 1; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); }
 
 @media (max-width: 900px) {
   .project {
