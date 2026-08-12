@@ -286,8 +286,9 @@
         }
       }
 
-      // Draw faint dots.
-      ctx.fillStyle = "rgba(255,255,255,0.16)";
+      // Draw faint dots. Dark-on-light now — same restrained
+      // opacity the original white-on-dark version used.
+      ctx.fillStyle = "rgba(24,24,27,0.22)";
       for (const n of nodes) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, 1.1, 0, Math.PI * 2);
@@ -304,8 +305,8 @@
           const dy = a.y - pointer.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < radius) {
-            const alpha = (1 - dist / radius) * 0.35;
-            ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+            const alpha = (1 - dist / radius) * 0.4;
+            ctx.strokeStyle = `rgba(24,24,27,${alpha})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);

@@ -4,15 +4,15 @@
    ========================================================= */
 
 :root {
-  --bg: #0a0a0b;
-  --bg-soft: #0d0d0f;
-  --surface: #151517;
-  --surface-2: #1b1b1e;
-  --border: rgba(255, 255, 255, 0.10);
-  --border-strong: rgba(255, 255, 255, 0.24);
-  --text: #f3f3f1;
-  --text-dim: #a2a2a6;
-  --text-faint: #8b8b8f;
+  --bg: #f6f5f3;
+  --bg-soft: #efeeeb;
+  --surface: #ffffff;
+  --surface-2: #c8c6c1;
+  --border: rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.22);
+  --text: #18181b;
+  --text-dim: #48484c;
+  --text-faint: #68676b;
   --nav-h: 76px;
   --radius: 3px;
   --radius-sm: 1px;
@@ -35,7 +35,11 @@ html, body {
 }
 
 body {
-  background: var(--bg);
+  /* Soft neutral-gray → off-white wash behind the whole page.
+     Flat surfaces (nav, cards, modal, mockups) still use the
+     solid --bg/--surface tokens, so this only shows through the
+     open space between them. */
+  background: linear-gradient(180deg, #eceae7 0%, #f8f7f5 45%, #f6f5f3 100%);
   color: var(--text);
   font-family: var(--font);
   font-weight: 400;
@@ -147,7 +151,7 @@ section { position: relative; }
   right: 0;
   height: var(--nav-h);
   z-index: 500;
-  background: rgba(10, 10, 11, 0.72);
+  background: rgba(246, 245, 243, 0.72);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
@@ -342,7 +346,7 @@ section { position: relative; }
 .btn--primary:hover,
 .btn--primary:focus-visible {
   transform: translateY(-2px);
-  background: #fff;
+  background: #000;
 }
 .btn--ghost {
   border-color: var(--border-strong);
